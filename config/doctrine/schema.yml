@@ -1,0 +1,16 @@
+Product:
+  columns:
+    name:           { type: string(255), notnull: true }
+    price:          { type: decimal, notnull: true }
+ 
+ProductPhoto:
+  columns:
+    product_id:     { type: integer }
+    filename:       { type: string(255) }
+    caption:        { type: string(255), notnull: true }
+  relations:
+    Product:
+      alias:        Product
+      foreignType:  many
+      foreignAlias: Photos
+      onDelete:     cascade

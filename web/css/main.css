@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: darkblue;
+}
+
+.container {
+  min-width: 100%;
+  min-height: 100vh;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+}
+
+.form-section {
+  margin-bottom: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.form_row {
+  margin-bottom: 15px;
+}
+
+.form_row label,
+.form_row input {
+  width: 100%;
+  display: block;
+}
+
+.form_row input[type=text] {
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.form_row input[type=file] {
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: white;
+}
+
+.form_row input[type=file]::-webkit-file-upload-button {
+  display: none;
+}
+
+.form_row input[type=file]::before {
+  content: 'Click to add';
+  margin-right: 5px;
+  padding: 5px;
+  display: inline-block;
+  color: darkblue;
+}
+
+.form_rowform_row_error input[type=text] {
+  border: 2px solid red;
+}
+
+ul.form-error {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li.form-error-item {
+  color: red;
+}
+
+.form-submit {
+  margin-right: 5px;
+  padding: 10px;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  background-color: darkblue;
+  color: white;
+}
+
+.form-submit:hover {
+  background-color: mediumblue;
+  transform: scale(1.05);
+}
+
+.table {
+  margin-bottom: 15px;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  border: 1px solid gray;
+}
+
+.table tr:nth-child(even) {
+  background-color: #eee;
+}
