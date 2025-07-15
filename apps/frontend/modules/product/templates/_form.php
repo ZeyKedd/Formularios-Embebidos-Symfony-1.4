@@ -1,7 +1,7 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
-<form action="<?php echo url_for('product/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form action="<?php echo url_for('product/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
   <?php if (!$form->getObject()->isNew()): ?>
     <input type="hidden" name="sf_method" value="put" />
   <?php endif; ?>
@@ -16,27 +16,30 @@
   <fieldset class="form-section">
     <legend>Upload More Photos</legend>
 
-    <?php foreach ($form['newPhotos'] as $photo): ?>
-    <?php echo $photo['caption']->renderRow() ?>
-    <div class="form-row"> 
-      <?php echo $photo['filename']->render() ?>
-      <?php echo $photo['filename']->renderError() ?>
+    <div class=" x ">
+      <?php foreach ($form['newPhotos'] as $photo): ?>
+        <?php echo $photo['caption']->renderRow() ?>
+        <div class="form-row">
+          <?php echo $photo['filename']->render() ?>w
+          <?php echo $photo['filename']->renderError() ?>
+        </div>
+      <?php endforeach; ?>
     </div>
-    <?php endforeach; ?>
+    <button></button>
   </fieldset>
 
   <?php if (!$form->getObject()->isNew()): ?>
-  <fieldset class="form-section">
-    <legend>Current Photos</legend>
+    <fieldset class="form-section">
+      <legend>Current Photos</legend>
 
-    <?php foreach ($form['Photos'] as $photo): ?>
-    <?php echo $photo['caption']->renderRow() ?>
-    <div class="form-row">
-      <?php echo $photo['filename']->renderRow(array('width' => 500)) ?>
-      <?php echo $photo['filename']->renderError() ?>
-    </div>
-    <?php endforeach; ?>
-  </fieldset>
+      <?php foreach ($form['Photos'] as $photo): ?>
+        <?php echo $photo['caption']->renderRow() ?>
+        <div class="form-row">
+          <?php echo $photo['filename']->renderRow(array('width' => 500)) ?>
+          <?php echo $photo['filename']->renderError() ?>
+        </div>
+      <?php endforeach; ?>
+    </fieldset>
   <?php endif; ?>
 
   <div>
