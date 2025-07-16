@@ -14,12 +14,21 @@ class ProductForm extends BaseProductForm
   {
     $form = new ProductPhotoCollectionForm(null, array(
       'product' => $this->getObject(),
-      'size' => 2,
+      'size' => $this->getDynamicSize(),
     ));
     $this->embedForm('newPhotos', $form);
     $this->embedRelation('Photos');
   }
 
+  public function getDynamicSize(){
+    $request = sfContext::getInstance()->getRequest();
+    $params = $request->getParameter('product');
+
+    if(isset($params['newPhotos']) && is_array($params['newPhotos']))
+    {
+      return count($params['newPhotos']);
+    }
+  }
 
   public function saveEmbeddedForms($con = null, $forms = null)
   {

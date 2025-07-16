@@ -9,7 +9,7 @@ class ProductPhotoCollectionForm extends sfForm
             throw new InvalidArgumentException('You must provide a product object.');
         }
 
-        for($i = 0; $i < $this->getOption('size', 2); $i++)
+        for($i = 0; $i < $this->getOption('size', 1); $i++)
         {
             $productPhoto = new ProductPhoto();
             $productPhoto->Product = $product;

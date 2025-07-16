@@ -12,4 +12,3 @@
     <?php echo $sf_content ?>
   </body>
 </html>
-wwwww

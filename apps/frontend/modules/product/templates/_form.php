@@ -1,6 +1,8 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
-
+<?php use_javascript('jquery-1.3.2.min.js') ?>
+<?php use_javascript('newPhoto.js') ?>
+<?php use_javascript('removePhoto.js') ?>
 <form action="<?php echo url_for('product/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
   <?php if (!$form->getObject()->isNew()): ?>
     <input type="hidden" name="sf_method" value="put" />
@@ -15,17 +17,19 @@
 
   <fieldset class="form-section">
     <legend>Upload More Photos</legend>
-
-    <div class=" x ">
+    <div id="photo-form-container">
       <?php foreach ($form['newPhotos'] as $photo): ?>
-        <?php echo $photo['caption']->renderRow() ?>
-        <div class="form-row">
-          <?php echo $photo['filename']->render() ?>w
-          <?php echo $photo['filename']->renderError() ?>
+        <div class="photo-form">
+          <?php echo $photo['caption']->renderRow() ?>
+          <div class="form-row">
+            <?php echo $photo['filename']->render() ?>
+            <?php echo $photo['filename']->renderError() ?>
+          </div>
+          <!-- <button id="remove-photo" type="button">Eliminar</button> -->
         </div>
       <?php endforeach; ?>
     </div>
-    <button></button>
+    <button class="form-submit" id="add-photo" type="button">Agregar otra foto</button>
   </fieldset>
 
   <?php if (!$form->getObject()->isNew()): ?>
